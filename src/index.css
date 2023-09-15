@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f7f7f7 !important;
+}
+
+.slate_editor pre {
+  background-color: #f5f5f5;
+  font-family: monospace;
+  padding: 5px;
+}
+
+.slate_editor blockquote {
+  border-left: 5px solid #d9d9d9;
+  color: #1e1e1e;
+  font-style: italic;
+  margin: 16px 0;
+  padding: 10px 20px;
+}
+.slate_editor ul {
+  padding-left: 20px;
+}
+.slate_editor ol {
+  padding-left: 20px;
+}
+
+.preview-container > p > code {
+  background-color: rgba(0, 0, 0, 0.05);
+  font-family: "Inconsolata", "Menlo", "Consolas", monospace;
+  font-size: 16px;
+  padding: 2[x];
+  color: #d21f3c;
+  border: 1px solid #eee;
+}
+
+@font-face {
+  font-family: "Gellix-ExtraBold";
+  src: url("./assets/fonts/Gellix-ExtraBold.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gellix-Bold";
+  src: url("./assets/fonts/Gellix-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gellix-SemiBold";
+  src: url("./assets/fonts/Gellix-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gellix-Medium";
+  src: url("./assets/fonts/Gellix-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gellix-Regular";
+  src: url("./assets/fonts/Gellix-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Proxima_Nova-Bold";
+  src: url("./assets/fonts/Proxima-Nova-Bold.otf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Proxima_Nova-SemiBold";
+  src: url("./assets/fonts/Proxima-Nova-Sbold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Proxima_Nova-Regular";
+  src: url("./assets/fonts/Proxima-Nova-Regular.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 100px;
+}
+
+.tox-dialog__footer-end button.tox-button:not(.tox-button--secondary) {
+  background-color: #1e1e1e !important;
+  border-color: #1e1e1e !important;
+}
+
+
+.tox .tox-listboxfield .tox-listbox--select:focus,
+.tox .tox-textarea:focus,
+.tox .tox-textfield:focus {
+  border-color: #daa8e2 !important;
+}
+.tox .tox-dialog__body-nav-item--active {
+  border-bottom: 2px solid #1e1e1e !important;
+  font-weight: 600;
+  color: #1e1e1e !important;
+}
+.tox .tox-checkbox__icons .tox-checkbox-icon__checked svg {
+  fill: #ff3250 !important;
+}
+.tox input.tox-checkbox__input:focus + .tox-checkbox__icons {
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px #ff3250 !important;
+  padding: calc(4px - 1px);
+}
