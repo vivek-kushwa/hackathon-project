@@ -135,19 +135,15 @@ const theme = createTheme({
       fontFamily: "Proxima_Nova-Regular",
     },
     button: {
-      fontFamily: "Gellix-Bold",
+      fontFamily: "Gellix-SemiBold",
     },
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          fontSize: "1rem",
           borderRadius: 5,
-          letterSpacing: "0.8px",
-          textTransform: "uppercase",
-          paddingLeft: "30px",
-          paddingRight: "30px",
+          textTransform: "capitalize",
         },
       },
     },

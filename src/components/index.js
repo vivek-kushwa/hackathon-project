@@ -1,18 +1,15 @@
-export { default as Avatar } from "./Avatar";
+
 export * from "./Buttons";
 export { default as Modal } from "./Modal";
 export * from "./Tabs";
 export * from "./SearchBox";
 export * from "./Form";
-export * from "./List";
 export * from "./Heading";
 export * from "./GoBack";
 export * from "./Flex";
 export * from "./Pagination";
 export * from "./Status";
-export * from "./Cards";
 export * from "./Dialog";
-export * from "./Tags";
 export * from "./Expendables";
 export * from "./BreadCrumbs";
 export * from "./Notifications";
@@ -22,4 +19,4 @@ export * from "./Editor";
 export * from "./Filters";
 export * from "./Loader";
 export * from "./NoDataFound";
-export * from "./Duration";
+

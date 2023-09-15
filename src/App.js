@@ -40,7 +40,7 @@ function App() {
       );
     }
   }
-  
+
   document.addEventListener("wheel", function (e) {
     handleScroll(e);
   });
@@ -53,23 +53,19 @@ function App() {
         <Router>
           <ScrollToTop />
           <Stack direction="row">
-
             {/* Enable side if needed */}
             {/* <Sidebar /> */}
             <Container
               sx={{
-                width: "calc( 100% - 300px )",
-                maxWidth: { xs: "calc( 100% - 300px )" },
+                // width: "calc( 100% - 300px )",
+                // maxWidth: { xs: "calc( 100% - 300px )" },
                 bgcolor: "secondary.background",
                 ml: "auto",
                 mr: 0,
                 p: { xs: 0 },
               }}
             >
-              <h1>
-                App is running........
-              </h1>
-              {/* <RoutesPath /> */}
+              <RoutesPath />
             </Container>
           </Stack>
         </Router>

@@ -1,7 +1,7 @@
 import { UploadRounded } from "@mui/icons-material";
-import { Button, Typography } from "@mui/material";
+import { Avatar, Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import Avatar from "components/Avatar";
+
 import React from "react";
 
 export const FileUpload = ({ name, onChange, disabled, error }) => {
