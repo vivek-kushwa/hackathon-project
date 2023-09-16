@@ -22,3 +22,14 @@ export const routes = [
     element: lazy(() => import("pages/Jobs")),
   },
 ];
+
+export const privateRoutes = [
+  {
+    path: "/profile",
+    element: lazy(() => import("pages/Profile")),
+  },
+  {
+    path: "/jobs",
+    element: lazy(() => import("pages/Jobs")),
+  },
+];

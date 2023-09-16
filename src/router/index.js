@@ -5,10 +5,10 @@ import { routes } from "./Routes";
 import { PrivateRoute } from "./PrivateRoute";
 
 const RoutesPath = () => {
-  const auth=""
+  const auth = "";
   return (
     <Routes>
-      {auth?.role === "" ? (
+      {auth?.role === "seeker" ? (
         <>
           <Route path="/*" element={<PrivateRoute />} />
         </>
@@ -25,7 +25,10 @@ const RoutesPath = () => {
               }
             ></Route>
           ))}
-          <Route path="*" element={<Navigate to="/home">Back Home</Navigate>} />
+          <Route
+            path="*"
+            element={<Navigate to="/login">Back Home</Navigate>}
+          />
         </>
       )}
     </Routes>

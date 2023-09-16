@@ -1,11 +1,11 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { routes } from "./Routes";
+import { privateRoutes, routes } from "./Routes";
 
 export function PrivateRoute() {
   console.log("Private Route");
   return (
     <Routes>
-      {routes.map((route) => (
+      {privateRoutes.map((route) => (
         <Route
           key={route.path}
           path={route.path}
@@ -17,7 +17,7 @@ export function PrivateRoute() {
           }
         ></Route>
       ))}
-      <Route path="*" element={<Navigate to="/home" />} />
+      <Route path="*" element={<Navigate to="/jobs" />} />
     </Routes>
   );
 }

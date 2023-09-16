@@ -5,6 +5,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Typography,
 } from "@mui/material";
 import { SpaceBetween } from "components";
 import { ImportContacts } from "@mui/icons-material";
@@ -69,26 +70,65 @@ const PageHeader = ({ PageIcon = <ImportContacts />, PageTitle, children }) => {
         </List>
         <>{children}</>
         <SpaceBetween>
-          <IconButton onClick={() => setIsMenuVisible((state) => !state)}>
+          <Typography
+            onClick={() => {
+              navigate("/jobs");
+            }}
+            variant="h1"
+            display="block"
+            fontSize={"1.2rem"}
+            mr={"1rem"}
+            sx={{
+              color: "primary.main",
+              hover: {
+                color: "primary.main",
+              },
+              cursor: "pointer",
+            }}
+          >
+            {"Jobs"}
+          </Typography>
+          <Typography
+            onClick={() => {
+              navigate("/profile");
+            }}
+            variant="h1"
+            display="block"
+            fontSize={"1.2rem"}
+            mr={"1rem"}
+            sx={{
+              color: "primary.main",
+              hover: {
+                color: "primary.main",
+              },
+              cursor: "pointer",
+            }}
+          >
+            {"Profile"}
+          </Typography>
+          <Typography
+            onClick={() => {
+              navigate("/login");
+            }}
+            variant="h1"
+            display="block"
+            fontSize={"1.2rem"}
+            mr={"1rem"}
+            sx={{
+              color: "primary.main",
+              hover: {
+                color: "primary.main",
+              },
+              cursor: "pointer",
+            }}
+          >
+            {"Login"}
+          </Typography>
+          {/* <IconButton onClick={() => setIsMenuVisible((state) => !state)}>
             <Avatar />
-          </IconButton>
+          </IconButton> */}
         </SpaceBetween>
       </SpaceBetween>
-      <Menu
-        // transformOrigin={{ horizontal: "right", vertical: "top" }}
-        anchorOrigin={{ vertical: "top" }}
-        sx={{
-          left: "85vw",
-        }}
-        open={isMenuVisible}
-        onClose={() => setIsMenuVisible(false)}
-      >
-        <MenuItem onClick={() => handleRedirection("/profile")}>
-          Profile
-        </MenuItem>
-        <MenuItem onClick={() => handleRedirection("/jobs")}>Jobs</MenuItem>
-        {/* <MenuItem>Third</MenuItem> */}
-      </Menu>
     </AppBar>
   );
 };
