@@ -16,9 +16,9 @@ import FormLabel from "@mui/material/FormLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import React from "react";
-
-import "./styles.css";
 import { debounce } from "@mui/material/utils";
+import { Heading } from "components";
+import { Form } from "layout";
 
 const GOOGLE_MAPS_API_KEY = "AIzaSyAMQo6jcfeeX7_JlDo9hV6cfCHGYi10mPY";
 
@@ -111,258 +111,247 @@ const UDGeneralInfo = ({
     };
   }, [value, inputValue, fetch]);
 
-  const fileValue = watch("profile_pic");
   return (
-    <Grid
-      container
-      spacing={2}
-      className="info-root-container"
-      sx={{ padding: "4rem", paddingBottom: "4rem" }}
+    <Form
+      handleSubmit={(data) => {}}
+      validationSchema={{}}
+      initialValues={{
+        email: "",
+        password: "",
+      }}
     >
-      <Grid item xs={12}>
-        <Typography
-          className="pt-4 md:text-start text-center"
-          variant="h5"
-          sx={{ color: "#A52B92", fontWeight: "800" }}
-        >
-          Please fill in your information
-        </Typography>
-      </Grid>
-
-      {/* 
-        1st Container */}
-      <Grid
-        item
-        xs={12}
-        sx={{
-          marginTop: "1rem",
-        }}
-      >
-        <Grid
-          container
-          sx={{
-            backgroundColor: "#F0F2F9",
-            padding: "1rem",
-            borderRadius: "10px",
-          }}
-        >
-          <Grid item xs={12}>
-            <InputLabel>Full Name*</InputLabel>
-            <TextField
-              sx={{ backgroundColor: "#fff" }}
-              size="small"
-              fullWidth
-              //   {...register("full_name")}
-              error={errors?.full_name?.message}
-            />
-            <Typography
+      {(formik) => {
+        const { errors, touched, values, handleChange, setFieldValue } = formik;
+        console.log(values, errors, "asklv");
+        return (
+          <Grid
+            container
+            spacing={2}
+            className="info-root-container"
+            sx={{ padding: "4rem", paddingBottom: "4rem" }}
+          >
+            <Grid
+              item
+              xs={12}
               sx={{
-                color: "#d32f2f",
-                fontSize: "12px",
-                padding: "2px 2px 2px 6px",
+                marginTop: "1rem",
               }}
             >
-              {errors && errors?.full_name?.message}{" "}
-            </Typography>
-          </Grid>
+              <Grid
+                container
+                sx={{
+                  backgroundColor: "#fff",
+                  padding: "2rem",
+                  borderRadius: "10px",
+                }}
+              >
+                <Grid item xs={12}>
+                  <TextField
+                    label={"Enter First name"}
+                    placeholder={"Enter your name"}
+                    onChange={handleChange}
+                    value={values?.email}
+                    error={touched?.email && !!errors?.email}
+                    errorMessage={errors?.email}
+                  />
+                </Grid>
 
-          <Grid item xs={6} sx={{ marginTop: "1rem" }}>
-            <InputLabel>DOB*</InputLabel>
+                <Grid item xs={6} sx={{ marginTop: "1rem" }}>
+                  <InputLabel>DOB*</InputLabel>
 
-            <TextField
-              sx={{ backgroundColor: "#fff" }}
-              name="startDate"
-              type="date"
-              size="small"
-              placeholder="DD/MM/YYYY"
-              InputProps={{ min: new Date().toISOString().slice(0, 16) }}
-              //   {...register("dob")}
-              error={errors?.dob?.message}
-            />
-            <Typography
-              sx={{
-                color: "#d32f2f",
-                fontSize: "12px",
-                padding: "2px 2px 2px 6px",
-              }}
-            >
-              {errors && errors?.dob?.message}{" "}
-            </Typography>
-          </Grid>
-          <Grid item xs={6} sx={{ marginTop: "1rem" }}>
-            <FormControl>
-              <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
-              <Controller
-                name={`gender`}
-                control={control}
-                defaultValue="" // Set an initial value if needed
-                render={({ field }) => (
-                  <RadioGroup
-                    {...field}
-                    defaultValue="male"
+                  <TextField
+                    sx={{ backgroundColor: "#fff" }}
+                    name="startDate"
+                    type="date"
+                    size="small"
+                    placeholder="DD/MM/YYYY"
+                    InputProps={{ min: new Date().toISOString().slice(0, 16) }}
+                    //   {...register("dob")}
+                    error={errors?.dob?.message}
+                  />
+                  <Typography
                     sx={{
-                      display: "flex !important",
-                      flexDirection: "row !important",
+                      color: "#d32f2f",
+                      fontSize: "12px",
+                      padding: "2px 2px 2px 6px",
                     }}
                   >
-                    <FormControlLabel
-                      value="male"
-                      control={<Radio />}
-                      label="Male"
-                    />
-                    <FormControlLabel
-                      value="female"
-                      control={<Radio />}
-                      label="Female"
-                    />
-                  </RadioGroup>
-                )}
-              />
-            </FormControl>
-          </Grid>
-        </Grid>
-      </Grid>
-      {/* 
+                    {errors && errors?.dob?.message}{" "}
+                  </Typography>
+                </Grid>
+                <Grid item xs={6} sx={{ marginTop: "1rem" }}>
+                  <FormControl>
+                    <FormLabel id="demo-radio-buttons-group-label">
+                      Gender
+                    </FormLabel>
+                    <RadioGroup
+                      // {...field}
+                      defaultValue="male"
+                      sx={{
+                        display: "flex !important",
+                        flexDirection: "row !important",
+                      }}
+                    >
+                      <FormControlLabel
+                        value="male"
+                        control={<Radio />}
+                        label="Male"
+                      />
+                      <FormControlLabel
+                        value="female"
+                        control={<Radio />}
+                        label="Female"
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                </Grid>
+              </Grid>
+            </Grid>
+            {/* 
         2nd Container */}
-      <Grid
-        item
-        xs={12}
-        sx={{
-          marginTop: "1rem",
-        }}
-      >
-        <Grid
-          container
-          sx={{
-            backgroundColor: "#F0F2F9",
-            padding: "1rem",
-            borderRadius: "10px",
-          }}
-        >
-          <Grid item xs={6} sx={{ paddingRight: "10px" }}>
-            <InputLabel>Phone Number*</InputLabel>
-            <TextField
-              sx={{ backgroundColor: "#fff" }}
-              size="small"
-              fullWidth
-              //   {...register("phone")}
-              error={errors?.phone?.message}
-            />
-            <Typography
+            <Grid
+              item
+              xs={12}
               sx={{
-                color: "#d32f2f",
-                fontSize: "12px",
-                padding: "2px 2px 2px 6px",
+                marginTop: "1rem",
               }}
             >
-              {errors && errors?.phone?.message}{" "}
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <InputLabel>Email Address*</InputLabel>
-            <TextField
-              sx={{ backgroundColor: "#fff" }}
-              size="small"
-              fullWidth
-              //   {...register("email")}
-              error={errors?.email?.message}
-            />
-            <Typography
-              sx={{
-                color: "#d32f2f",
-                fontSize: "12px",
-                padding: "2px 2px 2px 6px",
-              }}
-            >
-              {errors && errors?.email?.message}{" "}
-            </Typography>
-          </Grid>
-        </Grid>
-      </Grid>
-      {/* 
+              <Grid
+                container
+                sx={{
+                  backgroundColor: "#fff",
+                  padding: "2rem",
+                  borderRadius: "10px",
+                }}
+              >
+                <Grid item xs={6} sx={{ paddingRight: "10px" }}>
+                  <InputLabel>Phone Number*</InputLabel>
+                  <TextField
+                    sx={{ backgroundColor: "#fff" }}
+                    size="small"
+                    fullWidth
+                    //   {...register("phone")}
+                    error={errors?.phone?.message}
+                  />
+                  <Typography
+                    sx={{
+                      color: "#d32f2f",
+                      fontSize: "12px",
+                      padding: "2px 2px 2px 6px",
+                    }}
+                  >
+                    {errors && errors?.phone?.message}{" "}
+                  </Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <InputLabel>Email Address*</InputLabel>
+                  <TextField
+                    sx={{ backgroundColor: "#fff" }}
+                    size="small"
+                    fullWidth
+                    //   {...register("email")}
+                    error={errors?.email?.message}
+                  />
+                  <Typography
+                    sx={{
+                      color: "#d32f2f",
+                      fontSize: "12px",
+                      padding: "2px 2px 2px 6px",
+                    }}
+                  >
+                    {errors && errors?.email?.message}{" "}
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+            {/* 
         3rd Container */}
-      <Grid item xs={12}>
-        <Grid
-          container
-          sx={{
-            backgroundColor: "#F0F2F9",
-            padding: "1rem",
-            borderRadius: "10px",
-          }}
-        >
-          <Grid item xs={6} sx={{ paddingRight: "10px" }}>
-            <InputLabel>House Number*</InputLabel>
-            <TextField
-              sx={{ backgroundColor: "#fff" }}
-              size="small"
-              fullWidth
-              //   {...register("house_number")}
-              error={errors?.house_number?.message}
-            />
-            <Typography
-              sx={{
-                color: "#d32f2f",
-                fontSize: "12px",
-                padding: "2px 2px 2px 6px",
-              }}
-            >
-              {errors && errors?.house_number?.message}{" "}
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <InputLabel>Landmark</InputLabel>
-            <TextField
-              sx={{ backgroundColor: "#fff" }}
-              size="small"
-              fullWidth
-              //   {...register("landmark")}
-            />
-          </Grid>
-          <Grid item xs={12} sx={{ marginTop: "1rem" }}>
-            <TextField
-              sx={{ backgroundColor: "#fff" }}
-              size="small"
-              placeholder="Street 1*"
-              fullWidth
-              //   {...register("street_1")}
-              error={errors?.street_1?.message}
-            />
-            <Typography
-              sx={{
-                color: "#d32f2f",
-                fontSize: "12px",
-                padding: "2px 2px 2px 6px",
-              }}
-            >
-              {errors && errors?.street_1?.message}{" "}
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sx={{ marginTop: "1rem" }}>
-            <TextField
-              sx={{ backgroundColor: "#fff" }}
-              size="small"
-              placeholder="Street 2"
-              fullWidth
-              //   {...register("street_2")}
-            />
-          </Grid>
-          <Grid item xs={6} sx={{ marginTop: "1rem", paddingRight: "10px" }}>
-            <InputLabel>City*</InputLabel>
-            <TextField
-              sx={{ backgroundColor: "#fff" }}
-              size="small"
-              placeholder="Enter the city."
-              // label="City*"
-              fullWidth
-              //   {...register("city")}
-            />
-            {/* <Controller
+            <Grid item xs={12}>
+              <Grid
+                container
+                sx={{
+                  backgroundColor: "#fff",
+                  padding: "2rem",
+                  borderRadius: "10px",
+                }}
+              >
+                <Grid item xs={6} sx={{ paddingRight: "10px" }}>
+                  <InputLabel>House Number*</InputLabel>
+                  <TextField
+                    sx={{ backgroundColor: "#fff" }}
+                    size="small"
+                    fullWidth
+                    //   {...register("house_number")}
+                    error={errors?.house_number?.message}
+                  />
+                  <Typography
+                    sx={{
+                      color: "#d32f2f",
+                      fontSize: "12px",
+                      padding: "2px 2px 2px 6px",
+                    }}
+                  >
+                    {errors && errors?.house_number?.message}{" "}
+                  </Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <InputLabel>Landmark</InputLabel>
+                  <TextField
+                    sx={{ backgroundColor: "#fff" }}
+                    size="small"
+                    fullWidth
+                    //   {...register("landmark")}
+                  />
+                </Grid>
+                <Grid item xs={12} sx={{ marginTop: "1rem" }}>
+                  <TextField
+                    sx={{ backgroundColor: "#fff" }}
+                    size="small"
+                    placeholder="Street 1*"
+                    fullWidth
+                    //   {...register("street_1")}
+                    error={errors?.street_1?.message}
+                  />
+                  <Typography
+                    sx={{
+                      color: "#d32f2f",
+                      fontSize: "12px",
+                      padding: "2px 2px 2px 6px",
+                    }}
+                  >
+                    {errors && errors?.street_1?.message}{" "}
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} sx={{ marginTop: "1rem" }}>
+                  <TextField
+                    sx={{ backgroundColor: "#fff" }}
+                    size="small"
+                    placeholder="Street 2"
+                    fullWidth
+                    //   {...register("street_2")}
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={6}
+                  sx={{ marginTop: "1rem", paddingRight: "10px" }}
+                >
+                  <InputLabel>City*</InputLabel>
+                  <TextField
+                    sx={{ backgroundColor: "#fff" }}
+                    size="small"
+                    placeholder="Enter the city."
+                    // label="City*"
+                    fullWidth
+                    //   {...register("city")}
+                  />
+                  {/* <Controller
               name="city"
               control={control}
               defaultValue="" // Set an initial value if needed
               render={({ field }) => (
                 <Autocomplete
-                  {...field}
+                //   {...field}
                   sx={{ backgroundColor: "#fff" }}
                   size="small"
                   getOptionLabel={(option) =>
@@ -451,25 +440,25 @@ const UDGeneralInfo = ({
                 />
               )}
             /> */}
-            <Typography
-              sx={{
-                color: "#d32f2f",
-                fontSize: "12px",
-                padding: "2px 2px 2px 6px",
-              }}
-            >
-              {errors && errors?.city?.message}{" "}
-            </Typography>
-          </Grid>
-          <Grid item xs={6} sx={{ marginTop: "1rem" }}>
-            <InputLabel>State/Province*</InputLabel>
-            {/* <Controller
+                  <Typography
+                    sx={{
+                      color: "#d32f2f",
+                      fontSize: "12px",
+                      padding: "2px 2px 2px 6px",
+                    }}
+                  >
+                    {errors && errors?.city?.message}{" "}
+                  </Typography>
+                </Grid>
+                <Grid item xs={6} sx={{ marginTop: "1rem" }}>
+                  <InputLabel>State/Province*</InputLabel>
+                  {/* <Controller
               name="state"
               control={control}
               defaultValue="" // Set an initial value if needed
               render={({ field }) => (
                 <Select
-                  {...field}
+                //   {...field}
                   sx={{ backgroundColor: "#fff" }}
                   size="small"
                   fullWidth
@@ -482,88 +471,60 @@ const UDGeneralInfo = ({
                 </Select>
               )}
             /> */}
-            <TextField
-              sx={{ backgroundColor: "#fff" }}
-              size="small"
-              placeholder="Enter the state."
-              // label="State*"
-              fullWidth
-              //   {...register("state")}
-              error={errors?.state?.message}
-            />
+                  <TextField
+                    sx={{ backgroundColor: "#fff" }}
+                    size="small"
+                    placeholder="Enter the state."
+                    // label="State*"
+                    fullWidth
+                    //   {...register("state")}
+                    error={errors?.state?.message}
+                  />
 
-            <Typography
-              sx={{
-                color: "#d32f2f",
-                fontSize: "12px",
-                padding: "2px 2px 2px 6px",
-              }}
-            >
-              {errors && errors?.state?.message}
-            </Typography>
-          </Grid>
-          <Grid item xs={6} sx={{ marginTop: "1rem", paddingRight: "10px" }}>
-            <InputLabel>Country*</InputLabel>
-            <Controller
-              name="country"
-              control={control}
-              defaultValue="" // Set an initial value if needed
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  sx={{ backgroundColor: "#fff" }}
-                  size="small"
-                  fullWidth
-                  {...register("country")}
-                  error={errors?.country?.message}
-                >
-                  <MenuItem value="India">India</MenuItem>
-                </Select>
-              )}
-            />
-            <Typography
-              sx={{
-                color: "#d32f2f",
-                fontSize: "12px",
-                padding: "2px 2px 2px 6px",
-              }}
-            >
-              {errors && errors?.country?.message}{" "}
-            </Typography>
-          </Grid>
-          <Grid item xs={6} sx={{ marginTop: "1rem" }}>
-            <InputLabel>ZIP Code*</InputLabel>
-            <TextField
-              sx={{ backgroundColor: "#fff" }}
-              size="small"
-              fullWidth
-              //   {...register("pincode")}
-              error={errors?.pincode?.message}
-            />
-            <Typography
-              sx={{
-                color: "#d32f2f",
-                fontSize: "12px",
-                padding: "2px 2px 2px 6px",
-              }}
-            >
-              {errors && errors?.pincode?.message}{" "}
-            </Typography>
-          </Grid>
-        </Grid>
-      </Grid>
-      {/* 4th container */}
-      <Grid item xs={12}>
-        <Grid
-          container
-          sx={{
-            backgroundColor: "#F0F2F9",
-            padding: "1rem",
-            borderRadius: "10px",
-          }}
-          // justifyContent={"center"}
-        >
-          {/* <Grid item xs={12}>
+                  <Typography
+                    sx={{
+                      color: "#d32f2f",
+                      fontSize: "12px",
+                      padding: "2px 2px 2px 6px",
+                    }}
+                  >
+                    {errors && errors?.state?.message}
+                  </Typography>
+                </Grid>
+
+                <Grid item xs={6} sx={{ marginTop: "1rem" }}>
+                  <InputLabel>ZIP Code*</InputLabel>
+                  <TextField
+                    sx={{ backgroundColor: "#fff" }}
+                    size="small"
+                    fullWidth
+                    //   {...register("pincode")}
+                    error={errors?.pincode?.message}
+                  />
+                  <Typography
+                    sx={{
+                      color: "#d32f2f",
+                      fontSize: "12px",
+                      padding: "2px 2px 2px 6px",
+                    }}
+                  >
+                    {errors && errors?.pincode?.message}{" "}
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+            {/* 4th container */}
+            <Grid item xs={12}>
+              <Grid
+                container
+                sx={{
+                  backgroundColor: "#fff",
+                  padding: "2rem",
+                  borderRadius: "10px",
+                }}
+                // justifyContent={"center"}
+              >
+                {/* <Grid item xs={12}>
             <InputLabel>Upload Profile Picture or Choose Avatar</InputLabel>
           </Grid>
           <Grid item xs={6} sx={{ paddingRight: "10px" }}>
@@ -597,35 +558,35 @@ const UDGeneralInfo = ({
               <MenuItem value={1}>avatar 1</MenuItem>
             </Select>
           </Grid> */}
-          <InputLabel>Upload Profile Picture or Choose Avatar</InputLabel>
-          <Grid item xs={12} container justifyContent={"center"}>
-            <Grid item xs={3}>
-              <input
-                type="file"
-                id="input-file-upload1"
-                accept=".png, .jpg, .jpeg, .svg"
-                onClick={(event) => {
-                  event.currentTarget.value = null;
-                }}
-                // {...register("profile_pic", { required: true })}
-              />
+                <InputLabel>Upload Profile Picture or Choose Avatar</InputLabel>
+                <Grid item xs={12} container justifyContent={"center"}>
+                  <Grid item xs={3}>
+                    <input
+                      type="file"
+                      id="input-file-upload1"
+                      accept=".png, .jpg, .jpeg, .svg"
+                      onClick={(event) => {
+                        event.currentTarget.value = null;
+                      }}
+                      // {...register("profile_pic", { required: true })}
+                    />
 
-              <label id="label-file-upload1" htmlFor="input-file-upload1">
-                <Grid
-                  item
-                  xs={12}
-                  container
-                  sx={{
-                    textAlign: "center",
-                    height: "20vh",
-                    borderRadius: "15px",
-                    padding: "0.5rem",
-                    backgroundColor: "#fff",
-                    border: "1px solid #341950",
-                  }}
-                  className="flex items-center justify-center relative"
-                >
-                  {fileValue && (
+                    <label id="label-file-upload1" htmlFor="input-file-upload1">
+                      <Grid
+                        item
+                        xs={12}
+                        container
+                        sx={{
+                          textAlign: "center",
+                          height: "20vh",
+                          borderRadius: "15px",
+                          padding: "0.5rem",
+                          backgroundColor: "#fff",
+                          border: "1px solid #341950",
+                        }}
+                        className="flex items-center justify-center relative"
+                      >
+                        {/* {fileValue && (
                     <IconButton
                       onClick={() => setValue("profile_pic", "")}
                       sx={{
@@ -636,52 +597,50 @@ const UDGeneralInfo = ({
                     >
                       <CloseRounded />
                     </IconButton>
-                  )}
+                  )} */}
+                      </Grid>
+                    </label>
+                  </Grid>
                 </Grid>
-              </label>
+                <Typography
+                  sx={{
+                    color: "#d32f2f",
+                    fontSize: "12px",
+                    padding: "2px 2px 2px 6px",
+                  }}
+                >
+                  {errors && errors?.profile_pic?.message}{" "}
+                </Typography>
+              </Grid>
+            </Grid>
+            {/* 5th container */}
+            <Grid item xs={12}>
+              <Grid
+                container
+                sx={{
+                  backgroundColor: "#fff",
+                  padding: "2rem",
+                  borderRadius: "10px",
+                }}
+              >
+                <Grid item xs={12}>
+                  <InputLabel>About Me</InputLabel>
+                  <TextField
+                    sx={{ backgroundColor: "#fff" }}
+                    size="small"
+                    placeholder="Description"
+                    fullWidth
+                    multiline
+                    rows={4}
+                    //   {...register("bio")}
+                  />
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
-          <Typography
-            sx={{
-              color: "#d32f2f",
-              fontSize: "12px",
-              padding: "2px 2px 2px 6px",
-            }}
-          >
-            {errors && errors?.profile_pic?.message}{" "}
-          </Typography>
-        </Grid>
-      </Grid>
-      {/* 5th container */}
-      <Grid item xs={12}>
-        <Grid
-          container
-          sx={{
-            backgroundColor: "#F0F2F9",
-            padding: "1rem",
-            borderRadius: "10px",
-          }}
-        >
-          <Grid item xs={12}>
-            <InputLabel>About Me</InputLabel>
-            <TextField
-              sx={{ backgroundColor: "#fff" }}
-              size="small"
-              placeholder="Description"
-              fullWidth
-              multiline
-              rows={4}
-              //   {...register("bio")}
-            />
-          </Grid>
-        </Grid>
-      </Grid>
-      {/* <Grid item xs={12} sx={{ marginTop: "1rem", textAlign: "end" }}>
-        <Button type="submit" variant="contained" sx={{ width: "8rem" }}>
-          Save
-        </Button>
-      </Grid> */}
-    </Grid>
+        );
+      }}
+    </Form>
   );
 };
 
