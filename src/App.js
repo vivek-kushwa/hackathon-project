@@ -9,6 +9,7 @@ import { BrowserRouter as Router, useLocation } from "react-router-dom";
 import { store } from "redux/store";
 import RoutesPath from "router";
 import { __TOKEN } from "utils/constant";
+import { PageHeader } from "layout";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -51,6 +52,7 @@ function App() {
       <Notification />
       <Provider store={store}>
         <Router>
+          <PageHeader />
           <ScrollToTop />
           <Stack direction="row">
             {/* Enable side if needed */}

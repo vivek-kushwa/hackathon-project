@@ -16,6 +16,3 @@ export const getDummyAPI = createAsyncThunk(
     }
   }
 );
-
-
-export * from "./User"

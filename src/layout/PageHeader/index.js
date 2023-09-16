@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   List,
@@ -8,7 +8,13 @@ import {
 } from "@mui/material";
 import { SpaceBetween } from "components";
 import { ImportContacts } from "@mui/icons-material";
+import Avatar from "@mui/material/Avatar";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { IconButton } from "@mui/material";
 const PageHeader = ({ PageIcon = <ImportContacts />, PageTitle, children }) => {
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
+
   return (
     <AppBar
       position="sticky"
@@ -54,7 +60,25 @@ const PageHeader = ({ PageIcon = <ImportContacts />, PageTitle, children }) => {
           </ListItem>
         </List>
         <>{children}</>
+        <SpaceBetween>
+          <IconButton onClick={() => setIsMenuVisible((state) => !state)}>
+            <Avatar />
+          </IconButton>
+        </SpaceBetween>
       </SpaceBetween>
+      <Menu
+        // transformOrigin={{ horizontal: "right", vertical: "top" }}
+        anchorOrigin={{ vertical: "top" }}
+        sx={{
+          left: "85vw",
+        }}
+        open={isMenuVisible}
+        onClose={() => setIsMenuVisible(false)}
+      >
+        <MenuItem>First</MenuItem>
+        <MenuItem>Second</MenuItem>
+        <MenuItem>Third</MenuItem>
+      </Menu>
     </AppBar>
   );
 };
