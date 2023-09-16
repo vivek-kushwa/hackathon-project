@@ -8,7 +8,7 @@ export function Tabs({ handleChange, tabTypes = [], selectedTab = 0 }) {
       <MuiTabs
         value={selectedTab}
         onChange={handleChange}
-        indicatorColor="secondary"
+        indicatorColor="primary"
         sx={{
           "& .MuiTabs-flexContainer": {
             gap: 3,
@@ -24,8 +24,8 @@ export function Tabs({ handleChange, tabTypes = [], selectedTab = 0 }) {
             key={tab.id}
             label={tab?.label}
             sx={{
-              fontSize: 18,
-              textTransform: "none",
+              fontSize: 24,
+              // textTransform: "",
               fontWeight: 500,
               color: "primary.active",
             }}
