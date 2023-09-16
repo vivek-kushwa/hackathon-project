@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
 body {
   background-color: #f7f7f7 !important;
 }
@@ -36,62 +39,6 @@ body {
   border: 1px solid #eee;
 }
 
-@font-face {
-  font-family: "Gellix-ExtraBold";
-  src: url("./assets/fonts/Gellix-ExtraBold.ttf");
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Gellix-Bold";
-  src: url("./assets/fonts/Gellix-Bold.ttf");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Gellix-SemiBold";
-  src: url("./assets/fonts/Gellix-SemiBold.ttf");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Gellix-Medium";
-  src: url("./assets/fonts/Gellix-Medium.ttf");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Gellix-Regular";
-  src: url("./assets/fonts/Gellix-Regular.ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Proxima_Nova-Bold";
-  src: url("./assets/fonts/Proxima-Nova-Bold.otf");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Proxima_Nova-SemiBold";
-  src: url("./assets/fonts/Proxima-Nova-Sbold.ttf");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Proxima_Nova-Regular";
-  src: url("./assets/fonts/Proxima-Nova-Regular.otf");
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -112,7 +59,6 @@ body {
   background-color: #1e1e1e !important;
   border-color: #1e1e1e !important;
 }
-
 
 .tox .tox-listboxfield .tox-listbox--select:focus,
 .tox .tox-textarea:focus,
