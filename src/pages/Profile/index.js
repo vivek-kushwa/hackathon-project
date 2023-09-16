@@ -1,24 +1,13 @@
-import { CloseRounded, LocationOn } from "@mui/icons-material";
-import {
-  Autocomplete,
-  Box,
-  Grid,
-  IconButton,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Grid, InputLabel, Typography } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import React from "react";
 import { debounce } from "@mui/material/utils";
-import { Heading } from "components";
+import { TextField } from "components";
 import { Form } from "layout";
+import React from "react";
 
 const GOOGLE_MAPS_API_KEY = "AIzaSyAMQo6jcfeeX7_JlDo9hV6cfCHGYi10mPY";
 
@@ -130,6 +119,15 @@ const UDGeneralInfo = ({
             className="info-root-container"
             sx={{ padding: "4rem", paddingBottom: "4rem" }}
           >
+            <Grid item xs={12}>
+              <Typography
+                className="pt-4 md:text-start text-center"
+                variant="h5"
+                sx={{ color: "#A52B92", fontWeight: "800" }}
+              >
+                Personal Details
+              </Typography>
+            </Grid>
             <Grid
               item
               xs={12}
@@ -144,40 +142,35 @@ const UDGeneralInfo = ({
                   padding: "2rem",
                   borderRadius: "10px",
                 }}
+                gap={2}
               >
-                <Grid item xs={12}>
+                <Grid item xs={5.8}>
                   <TextField
                     label={"Enter First name"}
-                    placeholder={"Enter your name"}
                     onChange={handleChange}
-                    value={values?.email}
-                    error={touched?.email && !!errors?.email}
-                    errorMessage={errors?.email}
+                    value={values?.first_name}
+                    error={touched?.first_name && !!errors?.first_name}
+                    errorMessage={errors?.first_name}
+                  />
+                </Grid>
+                <Grid item xs={5.8}>
+                  <TextField
+                    label={"Enter Last name"}
+                    onChange={handleChange}
+                    value={values?.last_name}
+                    error={touched?.last_name && !!errors?.last_name}
+                    errorMessage={errors?.last_name}
                   />
                 </Grid>
 
                 <Grid item xs={6} sx={{ marginTop: "1rem" }}>
-                  <InputLabel>DOB*</InputLabel>
-
                   <TextField
-                    sx={{ backgroundColor: "#fff" }}
-                    name="startDate"
-                    type="date"
-                    size="small"
-                    placeholder="DD/MM/YYYY"
-                    InputProps={{ min: new Date().toISOString().slice(0, 16) }}
-                    //   {...register("dob")}
-                    error={errors?.dob?.message}
+                    label={"Enter Last name"}
+                    onChange={handleChange}
+                    value={values?.last_name}
+                    error={touched?.last_name && !!errors?.last_name}
+                    errorMessage={errors?.last_name}
                   />
-                  <Typography
-                    sx={{
-                      color: "#d32f2f",
-                      fontSize: "12px",
-                      padding: "2px 2px 2px 6px",
-                    }}
-                  >
-                    {errors && errors?.dob?.message}{" "}
-                  </Typography>
                 </Grid>
                 <Grid item xs={6} sx={{ marginTop: "1rem" }}>
                   <FormControl>

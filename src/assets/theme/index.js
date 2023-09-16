@@ -65,7 +65,7 @@ const theme = createTheme({
     custom: {
       light: "#00E8BB",
       main: "#FFE843",
-      dark: "#DAA8E2",
+      dark: "#5B6EEB",
       contrastText: "#1E1E1E",
     },
     warning: {
