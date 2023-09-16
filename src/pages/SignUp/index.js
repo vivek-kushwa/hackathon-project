@@ -7,12 +7,14 @@ import { Form } from "layout";
 
 const SignUp = () => {
   const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required("Please Enter your first Name"),
-    lastName: Yup.string().required("Please enter your last name"),
-    email: Yup.string().email("Please enter your valid email"),
+    firstName: Yup.string().required("Enter your first Name"),
+    lastName: Yup.string().required("Enter your last name"),
+    email: Yup.string()
+      .email("Enter your valid email")
+      .required("Email is required"),
     password: Yup.string()
-      .min(8, "Please enter your valid password")
-      .required("Please enter your password"),
+      .min(8, "Enter your valid password")
+      .required("Enter your password"),
   });
 
   return (
@@ -36,7 +38,9 @@ const SignUp = () => {
         <Stack spacing={5} m={10}>
           <Heading>Sign Up</Heading>
           <Form
-            handleSubmit={(data) => {}}
+            handleSubmit={(data) => {
+              console.log("data", data);
+            }}
             validationSchema={validationSchema}
             initialValues={{
               firstName: "",
@@ -47,6 +51,7 @@ const SignUp = () => {
           >
             {(formik) => {
               const { errors, touched, values, handleChange } = formik;
+              console.log(errors);
               return (
                 <>
                   <Box>
@@ -55,7 +60,6 @@ const SignUp = () => {
                         <TextField
                           label={"Enter your name"}
                           placeholder={"Enter your name"}
-                          isRequired={true}
                           name={"firstName"}
                           onChange={handleChange}
                           value={values?.firstName}
@@ -66,7 +70,6 @@ const SignUp = () => {
                         <TextField
                           label={"Enter your last name"}
                           placeholder={"Enter your last name"}
-                          isRequired={true}
                           name={"lastName"}
                           onChange={handleChange}
                           value={values?.lastName}
@@ -79,9 +82,9 @@ const SignUp = () => {
                         <TextField
                           label={"Enter your email"}
                           placeholder={"Enter your email"}
-                          isRequired={true}
-                          name={"name"}
-                          type={"email"}
+                          // isRequired={true}
+                          name={"email"}
+                          // type={"email"}
                           onChange={handleChange}
                           value={values?.email}
                           error={touched?.email && !!errors?.email}
@@ -91,7 +94,7 @@ const SignUp = () => {
                         <TextField
                           label={"Enter your password"}
                           placeholder={"Enter your password"}
-                          isRequired={true}
+                          // isRequired={true}
                           name={"password"}
                           type={"password"}
                           onChange={handleChange}
@@ -102,7 +105,7 @@ const SignUp = () => {
                       </Stack>
 
                       <Button type="submit" variant={"contained"}>
-                        Log In
+                        Sign Up
                       </Button>
                     </Stack>
                   </Box>
