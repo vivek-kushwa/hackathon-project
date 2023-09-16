@@ -4,6 +4,8 @@ import { Button, Heading, TextField } from "components";
 import { Form } from "layout";
 import React, { useState } from "react";
 import * as Yup from "yup";
+import { Paper } from "@mui/material";
+import auth from "assets/images/auth.svg";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -18,22 +20,37 @@ const Login = () => {
 
   return (
     <>
-      <Stack spacing={5} m={10}>
-        <Heading>Log IN</Heading>
-        <Form
-          handleSubmit={(data) => {}}
-          validationSchema={validationSchema}
-          initialValues={{
-            email: "",
-            password: "",
+      <Paper
+        elevation={1}
+        sx={{
+          display: "flex",
+          gap: 5,
+          m: 4,
+          p: 5,
+        }}
+      >
+        <Stack
+          sx={{
+            mt: 10,
           }}
         >
-          {(formik) => {
-            const { errors, touched, values, handleChange, setFieldValue } =
-              formik;
-            console.log(values, errors, "asklv");
-            return (
-              <Box>
+          <img src={auth} width={370} />
+        </Stack>
+        <Stack spacing={5} m={10} sx={{ width: "100%" }}>
+          <Heading>Log IN</Heading>
+          <Form
+            handleSubmit={(data) => {}}
+            validationSchema={validationSchema}
+            initialValues={{
+              email: "",
+              password: "",
+            }}
+          >
+            {(formik) => {
+              const { errors, touched, values, handleChange, setFieldValue } =
+                formik;
+              console.log(values, errors, "asklv");
+              return (
                 <Stack spacing={3}>
                   <TextField
                     name="email"
@@ -66,11 +83,11 @@ const Login = () => {
                     Log In
                   </Button>
                 </Stack>
-              </Box>
-            );
-          }}
-        </Form>
-      </Stack>
+              );
+            }}
+          </Form>
+        </Stack>
+      </Paper>
     </>
   );
 };
