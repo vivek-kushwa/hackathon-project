@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
+import FormHelperText from "@mui/material/FormHelperText";
 
 const Input = styled(InputBase)(({ theme }) => ({
   "label + &": {
@@ -32,21 +33,46 @@ const Input = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const TextField = ({label, value, error = false, ...rest }) => {
+const TextField = ({
+  label,
+  value,
+  isDisabled,
+  defaultValue,
+  error = false,
+  name,
+  placeholder,
+  isRequired,
+  type,
+  startIcon,
+  endIcon,
+  errorMessage,
+  ...rest
+}) => {
   return (
     <FormControl variant="standard" fullWidth error={error}>
-        <InputLabel
-          shrink
-          sx={{
-            color: "primary.main",
-            "&.Mui-error": {
-              fontWeight: 600,
-            },
-          }}
-        >
-          {label}
-        </InputLabel>
-      <Input value={value} {...rest} error={error} />
+      <InputLabel
+        shrink
+        sx={{
+          color: "primary.main",
+          "&.Mui-error": {
+            fontWeight: 600,
+          },
+        }}
+      >
+        {label}
+      </InputLabel>
+      <Input
+        value={value}
+        name={name}
+        error={error}
+        type={type}
+        disabled={isDisabled}
+        defaultValue={defaultValue}
+        placeholder={placeholder}
+        required={isRequired}
+        {...rest}
+      />
+      <FormHelperText>{errorMessage}</FormHelperText>
     </FormControl>
   );
 };

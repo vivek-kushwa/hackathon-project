@@ -60,8 +60,8 @@ function App() {
                 // width: "calc( 100% - 300px )",
                 // maxWidth: { xs: "calc( 100% - 300px )" },
                 bgcolor: "secondary.background",
-                ml: "auto",
-                mr: 0,
+                // ml: "auto",
+                // mr: 0,
                 p: { xs: 0 },
               }}
             >
