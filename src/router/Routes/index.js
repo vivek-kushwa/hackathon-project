@@ -19,6 +19,6 @@ export const routes = [
   },
   {
     path: "/jobs",
-    element: lazy(() => import("pages/SignUp")),
+    element: lazy(() => import("pages/Jobs")),
   },
 ];

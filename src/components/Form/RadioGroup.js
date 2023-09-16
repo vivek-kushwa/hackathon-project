@@ -2,7 +2,9 @@ import {
   Divider,
   FormControl,
   FormLabel,
+  InputLabel,
   RadioGroup as MuiRadioGroup,
+  Typography,
 } from "@mui/material";
 import React from "react";
 import Radio from "./Radio";
@@ -15,28 +17,33 @@ const RadioGroup = ({
   options = [],
   icon,
   checkedIcon,
-  isDivider = true,
+  error = false,
+  errorMsg = "",
 }) => {
   return (
-    <FormControl>
-      <FormLabel
+    <FormControl error={error}>
+      <InputLabel
+        shrink
         sx={{
-          p: 2,
-          color: "neutrals.main",
+          color: "primary.main",
+          "&.Mui-error": {
+            fontWeight: 700,
+          },
+          fontWeight: 700,
         }}
-        id={label}
       >
         {label}
-      </FormLabel>
-      {isDivider && <Divider />}
+      </InputLabel>
+
       <MuiRadioGroup
         aria-labelledby={label}
         {...{ name, value, onChange }}
         sx={{
           display: "flex",
           px: 0.8,
-          py: 2,
-          width: 238,
+
+          flexDirection: "row",
+          mt: "2rem",
         }}
       >
         {options.map((option) => (
@@ -52,6 +59,18 @@ const RadioGroup = ({
           />
         ))}
       </MuiRadioGroup>
+      {error && (
+        <Typography
+          sx={{
+            color: "error.main",
+
+            mt: "0.5rem",
+          }}
+          variant="body2"
+        >
+          {errorMsg}{" "}
+        </Typography>
+      )}
     </FormControl>
   );
 };
