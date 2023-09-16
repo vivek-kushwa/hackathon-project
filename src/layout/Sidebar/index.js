@@ -8,7 +8,7 @@ import {
    Stack,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import logo from "assets/images/logo.png";
+// import logo from "assets/images/logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 
 
@@ -39,7 +39,7 @@ const Sidebar = () => {
             p: { xs: "1rem !important" },
          }}>
          <Box mb={1} mx="auto">
-            <img src={logo} alt="logo" />
+            {/* <img src={logo} alt="logo" /> */}
          </Box>
          <Stack direction={"column"} alignItems="space-between" height={"88%"}>
             <Box>
