@@ -57,6 +57,7 @@ const TextField = ({
           "&.Mui-error": {
             fontWeight: 700,
           },
+          fontWeight: 700,
         }}
       >
         {label}
