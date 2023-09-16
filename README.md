@@ -1,12 +1,13 @@
 ## PROJECT NAME
-
+JOBEE 
 ### 👀 Overview
+A platform that matches differently-abled job seekers with inclusive employers. Users can upload their resumes and job preferences, while companies can post accessible job openings. Smart contracts can handle job applications and interviews, ensuring fairness and transparency.
 
 
 
 ### 📜 Repository Information
-- Repository: 
-- Branch: 
+- Repository: https://github.com/vivek-kushwa/hackathon-project.git
+- Branch: main
 
 
 ### 💁Git Related Instructions
@@ -37,7 +38,7 @@ For detailed installation instructions and additional configuration options, ref
 
 ### 🍥 Design
 The design for PROJECT NAME was created using Figma, a collaborative design tool. You can access the design files and assets using the following link:
-- Figma Design: URL
+- Figma Design: https://www.figma.com/file/Yc9lZD5eOUza18vdvKGgaO/Hackathon?node-id=2%3A1385&mode=dev
 
 
 ### 🔬 Technologies Used
@@ -107,4 +108,4 @@ src
 ```
 
 ### 📑 API Documentation
-- URL
+- URL 

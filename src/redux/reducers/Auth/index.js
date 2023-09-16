@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {};
+const initialState = {
+  isLoading: false,
+  isError: false,
+  isSuccess: false,
+};
 
 const dummy = createSlice({
   name: "dummy",

@@ -1,5 +1,12 @@
 import { DeleteRounded } from "@mui/icons-material";
-import { Box, DialogTitle, Divider, IconButton, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  DialogTitle,
+  Divider,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import {
   Button,
   Dialog,
@@ -14,6 +21,7 @@ import {
   message,
 } from "components";
 import React from "react";
+import Visibility from "@mui/icons-material/Visibility";
 
 const style = {
   position: "absolute",
@@ -97,6 +105,8 @@ const Components = () => {
         label="Outlined"
         variant="outlined"
         placeholder="Enter the name"
+        error={true}
+        errorMessage={"Not found"}
       />
 
       <Divider> Typography from MUI </Divider>
@@ -209,7 +219,6 @@ const Components = () => {
 export default Components;
 
 /////////////////// MORE COMPONENTS /////////////////////
-
 
 // export * from "./Tabs";
 // export * from "./Form";

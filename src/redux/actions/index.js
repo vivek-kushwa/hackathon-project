@@ -18,4 +18,6 @@ export const getDummyAPI = createAsyncThunk(
 );
 
 
-export * from "./User"
+export * from "./Auth"
+
+export * from "./JobsAndUser"

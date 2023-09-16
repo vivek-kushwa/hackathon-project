@@ -9,26 +9,26 @@ const theme = createTheme({
     primary: {
       light: "#C8C8C8",
       mediumLight: "#8C8C8C",
-      main: "#1E1E1E",
+      main: "#6C83F3",
       gradient: "linear-gradient(270deg, #000000 0%, #404041 100%)",
     },
     secondary: {
       light: "#F95864",
       mediumLight: "#FF3250",
-      main: "#F00037",
+      main: "#FFD056",
       gradient: "linear-gradient(90deg, #FFECEC 0%, #FCDBD1 100%)",
     },
     action: {
       // The color of an active action like an icon button.
-      active: "#FF3250",
+      active: "#5B6EEB",
       // The color of an hovered action.
-      // hover: "#4D4D4D",
+      hover: "#EDF3FF",
       hoverOpacity: 0.04,
       // The color of a selected action.
-      selected: "#FF3250",
+      selected: "#5B6EEB",
       selectedOpacity: 0.08,
       // The color of a disabled action.
-      disabled: "#fff",
+      disabled: "#D0D0D0",
       // The background color of a disabled action.
       disabledBackground: "#B3B3B3",
       disabledOpacity: 0.38,
@@ -58,14 +58,14 @@ const theme = createTheme({
       A700: "#1E1E1E",
     },
     text: {
-      primary: "#1E1E1E",
-      secondary: " #8C8C8C",
+      primary: "#0E0E1C",
+      secondary: "#727272",
     },
 
     custom: {
       light: "#00E8BB",
       main: "#FFE843",
-      dark: "#DAA8E2",
+      dark: "#5B6EEB",
       contrastText: "#1E1E1E",
     },
     warning: {
@@ -77,11 +77,11 @@ const theme = createTheme({
     },
     success: {
       light: "#CFFBE3",
-      main: "#067E3D",
+      main: "#61BD85",
     },
     error: {
       light: "#F9EBEC",
-      main: "#F00037",
+      main: "#D95353",
     },
 
     contrastThreshold: 3,
@@ -90,60 +90,65 @@ const theme = createTheme({
   },
   background: { default: "#F7F7F7", alt: "#fff" },
   typography: {
-    fontFamily: [
-      "Gellix-Regular",
-      "Gellix-Medium",
-      "Gellix-SemiBold",
-      "Gellix-Bold",
-      "Gellix-ExtraBold",
-      "Proxima_Nova-Regular",
-      "Proxima_Nova-SemiBold",
-      "Proxima_Nova-Bold",
-      "sans-serif",
-    ].join(","),
+    fontFamily: ["Roboto", "sans-serif"].join(","),
     fontWeightLight: 400,
+    fontWeightLight: 500,
     fontWeightBold: 600,
     fontWeightBolder: 900,
     h1: {
-      fontFamily: "Gellix-SemiBold",
+      fontFamily: "Roboto",
+      fontWeightBold: 700,
     },
     h2: {
-      fontFamily: "Gellix-SemiBold",
+      fontFamily: "Roboto",
+      fontWeightBold: 600,
     },
     h3: {
-      fontFamily: "Gellix-SemiBold",
+      fontFamily: "Roboto",
+      fontWeightBold: 500,
     },
     h4: {
-      fontFamily: "Gellix-SemiBold",
+      fontFamily: "Roboto",
+      fontWeightBold: 400,
     },
     h5: {
-      fontFamily: "Gellix-SemiBold",
+      fontFamily: "Roboto",
+      fontWeightBold: 500,
     },
     h6: {
-      fontFamily: "Gellix-SemiBold",
+      fontFamily: "Roboto",
+      fontWeightBold: 500,
     },
     subtitle1: {
-      fontFamily: "Proxima_Nova-Bold",
+      fontFamily: "Roboto",
+      fontWeightBold: 500,
     },
     subtitle2: {
-      fontFamily: "Proxima_Nova-SemiBold",
+      fontFamily: "Roboto",
+      fontWeightBold: 400,
     },
     body1: {
-      fontFamily: "Proxima_Nova-Regular",
+      fontFamily: "Roboto",
+      fontWeightBold: 400,
+      colo: "#727272",
     },
     body2: {
-      fontFamily: "Proxima_Nova-Regular",
+      fontFamily: "Roboto",
+      fontWeightBold: 400,
+      colo: "#727272",
     },
     button: {
-      fontFamily: "Gellix-SemiBold",
+      fontFamily: "Roboto",
+      fontWeightBold: 500,
     },
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 5,
+          borderRadius: "2rem",
           textTransform: "capitalize",
+          border: "1.5px solid #5B6EEB",
         },
       },
     },

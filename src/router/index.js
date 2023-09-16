@@ -2,25 +2,35 @@ import { PageHeader } from "layout";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { PAGE_ICONS } from "utils/constant";
 import { routes } from "./Routes";
+import { PrivateRoute } from "./PrivateRoute";
 
 const RoutesPath = () => {
+  const auth = "";
   return (
     <Routes>
-      {routes.map((route) => (
-        <Route
-          key={route.path}
-          path={route.path}
-          element={
-            <>
-              {/* <PageHeader
-                PageTitle={"Courses"}
-                PageIcon={PAGE_ICONS["Courses"]}
-              /> */}
-              <route.element />.
-            </>
-          }
-        ></Route>
-      ))}
+      {auth?.role === "seeker" ? (
+        <>
+          <Route path="/*" element={<PrivateRoute />} />
+        </>
+      ) : (
+        <>
+          {routes.map((route) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={
+                <>
+                  <route.element />.
+                </>
+              }
+            ></Route>
+          ))}
+          <Route
+            path="*"
+            element={<Navigate to="/login">Back Home</Navigate>}
+          />
+        </>
+      )}
     </Routes>
   );
 };

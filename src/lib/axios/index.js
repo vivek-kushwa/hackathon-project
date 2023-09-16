@@ -1,14 +1,7 @@
 import axios from "axios";
-// import { BASEURL } from "services";
+import { BASEURL } from "services";
 
-
-// const axiosInstance = axios.create({
-//   baseURL: BASEURL,
-//   // headers: {
-//   //   Authorization: `Bearer ${get_Token()}`,
-//   // },
-// });
-
+axios.defaults.baseURL = BASEURL;
 // export default axiosInstance;
 
 /**
