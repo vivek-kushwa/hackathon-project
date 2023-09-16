@@ -4,8 +4,11 @@ import React from "react";
 import auth from "assets/images/auth.svg";
 import * as Yup from "yup";
 import { Form } from "layout";
+import { useDispatch } from "react-redux";
+import { signUp } from "redux/actions/Auth";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
     firstName: Yup.string().required("Enter your first Name"),
     lastName: Yup.string().required("Enter your last name"),
@@ -16,6 +19,10 @@ const SignUp = () => {
       .min(8, "Enter your valid password")
       .required("Enter your password"),
   });
+
+  const handleSubmit = (data) => {
+    dispatch(signUp(data));
+  };
 
   return (
     <>
@@ -38,9 +45,7 @@ const SignUp = () => {
         <Stack spacing={5} m={10}>
           <Heading>Sign Up</Heading>
           <Form
-            handleSubmit={(data) => {
-              console.log("data", data);
-            }}
+            handleSubmit={handleSubmit}
             validationSchema={validationSchema}
             initialValues={{
               firstName: "",
