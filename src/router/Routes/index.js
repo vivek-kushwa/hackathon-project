@@ -13,4 +13,12 @@ export const routes = [
     path: "/sign-up",
     element: lazy(() => import("pages/SignUp")),
   },
+  {
+    path: "/profile",
+    element: lazy(() => import("pages/Profile")),
+  },
+  {
+    path: "/jobs",
+    element: lazy(() => import("pages/SignUp")),
+  },
 ];
