@@ -55,7 +55,7 @@ const TextField = ({
         sx={{
           color: "primary.main",
           "&.Mui-error": {
-            fontWeight: 600,
+            fontWeight: 700,
           },
         }}
       >

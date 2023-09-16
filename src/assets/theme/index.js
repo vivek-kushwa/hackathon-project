@@ -149,9 +149,7 @@ const theme = createTheme({
           borderRadius: "2rem",
           textTransform: "capitalize",
           border: "1.5px solid #5B6EEB",
-        
         },
-      
       },
     },
     MuiSvgIcon: {
