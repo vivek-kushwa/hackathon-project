@@ -12,8 +12,15 @@ import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { IconButton } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import logo from "assets/images/logo.svg";
 const PageHeader = ({ PageIcon = <ImportContacts />, PageTitle, children }) => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const navigate = useNavigate();
+
+  const handleRedirection = (path) => {
+    navigate(path);
+  };
 
   return (
     <AppBar
@@ -47,8 +54,9 @@ const PageHeader = ({ PageIcon = <ImportContacts />, PageTitle, children }) => {
                 fontFamily: "Gellix-SemiBold",
                 fontSize: "inherit",
               }}
+              onClick={() => handleRedirection("/login")}
             >
-              {PageIcon}
+              <img width={30} src={logo} />
             </ListItemIcon>
             <ListItemText
               primary={PageTitle}
@@ -75,9 +83,11 @@ const PageHeader = ({ PageIcon = <ImportContacts />, PageTitle, children }) => {
         open={isMenuVisible}
         onClose={() => setIsMenuVisible(false)}
       >
-        <MenuItem>First</MenuItem>
-        <MenuItem>Second</MenuItem>
-        <MenuItem>Third</MenuItem>
+        <MenuItem onClick={() => handleRedirection("/profile")}>
+          Profile
+        </MenuItem>
+        <MenuItem onClick={() => handleRedirection("/jobs")}>Jobs</MenuItem>
+        {/* <MenuItem>Third</MenuItem> */}
       </Menu>
     </AppBar>
   );
